@@ -1,0 +1,6 @@
+[submodule "ui/tornado"]
+	path = ui/tornado
+	url = git@github.com:WuerthPhoenix/tornado.git
+[submodule "backend-tornado/tornado"]
+	path = backend-tornado/tornado
+	url = git@github.com:WuerthPhoenix/tornado.git

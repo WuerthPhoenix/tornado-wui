@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    networks:
+      - my_network
+
+  backend-user:
+    build:
+      context: ./backend-user
+      dockerfile: Dockerfile
+    networks:
+      - my_network
+
+  backend-tornado:
+    build:
+      context: ./backend-tornado
+      dockerfile: Dockerfile
+    networks:
+      - my_network
+
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - ui
+      - backend-user
+      - backend-tornado
+    networks:
+      - my_network
+
+networks:
+  my_network:

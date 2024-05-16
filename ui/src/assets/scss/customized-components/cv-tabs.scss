@@ -1,0 +1,16 @@
+.cv-tabs {
+  .cv-tab.bx--tabs--container {
+    border-bottom: solid 2px var(--cds-ui-03);
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+
+    & > ul {
+      position: relative;
+      bottom: -2px;
+    }
+  }
+
+  .cv-tabs__panels {
+    margin: $spacing-05;
+  }
+}

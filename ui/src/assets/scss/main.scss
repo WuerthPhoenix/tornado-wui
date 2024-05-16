@@ -1,0 +1,140 @@
+$feature-flags: (
+  enable-css-custom-properties: true
+);
+@import "~@carbon/themes/scss";
+@import "~@carbon/colors/scss";
+@import "~@carbon/motion/scss/motion.scss";
+@import "mixins";
+
+$carbon--theme--light: map-merge(
+  $carbon--theme--g10,
+  (
+          focus: #0A9D81,
+          interactive-01: #0A9D81,
+          interactive-03: #0A9D81,
+          hover-primary: darken(#0A9D81, 10%),
+          active-primary: darken(#0A9D81, 20%),
+          interactive-04: #0A9D81,
+          support-02: #0A9D81,
+          inverse-support-04: #0A9D81,
+          inverse-link: #0A9D81,
+          link-01: #0A9D81,
+          hover-primary-text: darken(#0A9D81, 10%),
+  )
+) !default;
+
+
+$carbon--theme--dark: map-merge(
+  $carbon--theme--g100,
+  (
+          interactive-01: #0A9D81,
+          hover-primary: darken(#0A9D81, 10%),
+          active-primary: darken(#0A9D81, 20%),
+          interactive-04: #0A9D81,
+          support-02: #0A9D81,
+          inverse-support-04: #0A9D81,
+          inverse-link: #0A9D81,
+          link-01: #0A9D81,
+          hover-primary-text: lighten(#0A9D81, 10%),
+  )
+) !default;
+// Use the light theme by default
+$carbon--theme: $carbon--theme--light;
+// Use the white theme wherever this class is added
+.light {
+  --ui-00: #ffffff; // Light theme color
+  --ui-10: #f4f4f4;
+  --ui-11: #ffffff;
+  --ui-11-disabled: #ffffff;
+  --ui-12: #f4f4f4;
+  --ui-13: #E0E0E0;
+  --tag-00: #DEE1E5;
+  --tag-01: #e0e0e0;
+  --tag-text-00: #353A3E;
+  --tag-text-01: #000;
+  --ui-input: #f4f4f4;
+  --ui-input-hover: #E0E0E0;
+  --ui-input-border: #8d8d8d;
+  --disabled-icon: #525252;
+  --button-primary: #f8f8f8;
+  --button-secondary: #E0E0E0;
+  --button-secondary-hover: #E5E5E5;
+  --button-hover: #0a9d81;
+  --button-text: #161616;
+  --icon-primary: #161616;
+  --divider-primary: #C6C6C6;
+  --text-00: #525252;
+  --text-13: #fff;
+  --text-grey: #818181;
+  --multitag-bg: #DDE1E6;
+  --multitag-text: #3A4045;
+  --multitag-text-02: #acb1b6;
+
+  @include carbon--theme($theme: $carbon--theme--light, $emit-custom-properties: true);
+}
+// Use the g90 theme wherever this class is added
+.dark {
+  --ui-00: #000000; // Dark theme color
+  --ui-10: #313131;
+  --ui-11: #262626;
+  --ui-11-disabled: #1e1e1e;
+  --ui-12: #393939;
+  --ui-13: #393939;
+  --tag-00: #4E5357;
+  --tag-01: #6f6f6f;
+  --tag-text-00: #DEE1E5;
+  --tag-text-01: #FFF;
+  --ui-input: #393939;
+  --ui-input-hover: #525252;
+  --ui-input-border: #6f6f6f;
+  --disabled-icon: #8d8d8d;
+  --button-primary: #313131;
+  --button-secondary: #393939;
+  --button-secondary-hover: #313131;
+  --button-hover: #f4f4f4;
+  --button-text: #f4f4f4;
+  --icon-primary: #F4F4F4;
+  --divider-primary: #6F6F6F;
+  --text-00: #C6C6C6;
+  --text-13: #000;
+  --text-grey: #a8a8a8;
+  --multitag-bg: #4d5358;
+  --multitag-text: #dde1e6;
+  --multitag-text-02: #787e83;
+  @include carbon--theme($theme: $carbon--theme--dark, $emit-custom-properties: true);
+
+}
+$ui-00: var(--ui-00);
+$ui-10: var(--ui-10);
+$ui-11: var(--ui-11);
+$ui-11-disabled: var(--ui-11-disabled);
+$ui-12: var(--ui-12);
+$ui-13: var(--ui-13);
+$tag-00: var(--tag-00);
+$tag-01: var(--tag-01);
+$tag-text-00: var(--tag-text-00);
+$tag-text-01: var(--tag-text-01);
+$ui-input: var(--ui-input);
+$ui-input-hover: var(--ui-input-hover);
+$ui-input-border: var(--ui-input-border);
+$disabled-icon: var(--disabled-icon);
+$button-primary: var(--button-primary);
+$button-secondary: var(--button-secondary);
+$button-secondary-hover: var(--button-secondary-hover);
+$button-hover: var(--button-hover);
+$button-text: var(--button-text);
+$icon-primary: var(--icon-primary);
+$divider-primary: var(--divider-primary);
+$icon-white: #ffffff;
+$text-00: var(--text-00);
+$text-13: var(--text-13);
+$icon-green: #0bb798;
+$icon-orange: #ff974b;
+$multitag-bg: var(--multitag-bg);
+$multitag-text: var(--multitag-text);
+$multitag-text-02: var(--multitag-text-02);
+$text-grey: var(--text-grey);
+
+@import "customized-components/cv-tabs";
+@import "customized-components/inputs";
+@import "customized-variables/clickable-components";

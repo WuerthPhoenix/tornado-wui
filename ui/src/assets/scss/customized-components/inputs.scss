@@ -1,0 +1,7 @@
+input {
+  background: $ui-input;
+  &:focus,
+  &:active {
+    outline: none !important;
+  }
+}

@@ -1,0 +1,7 @@
+.cv-button {
+  &:focus
+  &:active, {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
