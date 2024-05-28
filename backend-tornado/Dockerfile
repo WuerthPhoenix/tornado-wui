@@ -1,26 +1,22 @@
-# Usa un'immagine di Rust come base
+# Use the rust container during the build step
 FROM rust:1.71.1-slim-bullseye as builder
 
-# Crea una directory di lavoro all'interno del container
+# Create the working directory for the container
 WORKDIR /usr/src/tornado
 
 COPY tornado .
 
-# Compila il progetto Rust in modalità release
+# Compile tornado in release mode
 RUN cargo build --release
 
-# Ora inizia un nuovo stage per creare un'immagine più leggera senza il toolchain di Rust
+# Create a new, lighter image for the execution.
 FROM debian:bullseye-slim
-#
-#RUN apt-get update && apt-get install -y \
-#    libssl-dev \
-#    && rm -rf /var/lib/apt/lists/*
 
-# Copia il binario compilato dallo stage precedente nell'immagine finale
+# Copy the binary and config files from the build container into the final container.
 COPY --from=builder /usr/src/tornado/target/release/tornado_engine /usr/local/bin/tornado
 COPY --from=builder /usr/src/tornado/tornado/engine/config/ /etc/tornado/
-#COPY ./conf/tornado.toml /etc/tornado/tornado.toml
 
 EXPOSE 4748
-# Esegui il binario quando il container viene avviato
+
+# Execute tornado in the container
 CMD ["tornado", "daemon"]
